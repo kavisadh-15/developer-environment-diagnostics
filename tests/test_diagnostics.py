@@ -2,7 +2,8 @@ from diagnostics.checks import (
     check_python,
     check_disk,
     check_environment,
-    check_developer_tools
+    check_developer_tools,
+    check_configuration_path
 )
 
 
@@ -28,7 +29,6 @@ def test_environment_check():
     assert "missing" in result
     assert result["status"] in ["PASS", "WARN"]
 
-
 def test_developer_tools_check():
     result = check_developer_tools()
 
@@ -36,3 +36,11 @@ def test_developer_tools_check():
     assert "available" in result
     assert "missing" in result
     assert result["status"] in ["PASS", "WARN"]
+
+
+def test_missing_configuration_path():
+    result = check_configuration_path("missing-config.json")
+
+    assert result["name"] == "Configuration Path"
+    assert result["status"] == "WARN"
+    assert "does not exist" in result["message"]

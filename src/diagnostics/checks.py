@@ -58,3 +58,26 @@ def check_developer_tools():
         "missing": missing,
         "status": "PASS" if not missing else "WARN"
     }
+def check_configuration_path(path):
+    if not path:
+        return {
+            "name": "Configuration Path",
+            "status": "WARN",
+            "path": path,
+            "message": "Configuration path is empty"
+        }
+
+    if not os.path.exists(path):
+        return {
+            "name": "Configuration Path",
+            "status": "WARN",
+            "path": path,
+            "message": "Configuration path does not exist"
+        }
+
+    return {
+        "name": "Configuration Path",
+        "status": "PASS",
+        "path": path,
+        "message": "Configuration path is valid"
+    }
