@@ -18,6 +18,18 @@ Run the diagnostics tool:
 
 ```cmd
 diagnostics
+Check a configuration path:
+
+diagnostics --config missing-config.json
+
+JSON report with configuration check:
+
+diagnostics --json --config missing-config.json
+
+Exit Codes:
+0 - All checks passed
+1 - One or more checks need attention
+
 ## Testing
 
 Run the test suite with:
