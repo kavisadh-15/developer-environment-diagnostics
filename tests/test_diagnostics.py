@@ -44,3 +44,23 @@ def test_missing_configuration_path():
     assert result["name"] == "Configuration Path"
     assert result["status"] == "WARN"
     assert "does not exist" in result["message"]
+
+def test_missing_configuration_path():
+    result = check_configuration_path("missing-config.json")
+
+    assert result["name"] == "Configuration Path"
+    assert result["status"] == "WARN"
+    assert "does not exist" in result["message"]
+
+
+def test_missing_dependency(monkeypatch):
+    monkeypatch.setattr(
+        "shutil.which",
+        lambda tool: None
+    )
+
+    result = check_developer_tools()
+
+    assert result["status"] == "WARN"
+    assert "git" in result["missing"]
+    assert "code" in result["missing"]
