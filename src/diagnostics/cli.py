@@ -1,5 +1,5 @@
 import argparse
-import json
+import sys
 
 from diagnostics.checks import (
     check_python,
@@ -38,6 +38,11 @@ def main():
         print(create_json_report(results))
     else:
         print(create_text_report(results))
+
+    if all(result["status"] == "PASS" for result in results):
+        sys.exit(0)
+    else:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
