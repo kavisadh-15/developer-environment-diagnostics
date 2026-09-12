@@ -1,0 +1,28 @@
+{
+    "checks": [
+        {
+            "name": "Python",
+            "version": "3.x.x",
+            "status": "PASS"
+        },
+        {
+            "name": "Disk Space",
+            "free_gb": 10.0,
+            "status": "PASS"
+        },
+        {
+            "name": "Environment Variables",
+            "missing": [],
+            "status": "PASS"
+        },
+        {
+            "name": "Developer Tools",
+            "available": [
+                "git",
+                "code"
+            ],
+            "missing": [],
+            "status": "PASS"
+        }
+    ]
+}

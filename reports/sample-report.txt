@@ -1,0 +1,17 @@
+Developer Environment Health Report
+========================================
+
+Python: PASS
+  version: 3.x.x
+
+Disk Space: PASS
+  free_gb: 10.00
+
+Environment Variables: PASS
+  missing: []
+
+Developer Tools: PASS
+  available: [git, code]
+  missing: []
+
+Overall Status: HEALTHY
